@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <style>
+        .textcolor{
+            color:red;
+        }
+        .textsize{
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        userName is :{{name}}<br>
+        please input username:<input type="text" v-model="name"><br>
+        <input type="button" value='清空' @click="btChange">
+        <ul v-bind:class="{'textcolr':iscolor,'textsize':issize}">
+            <li v-for="item in hobbies" >
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+         new Vue({
+            el: "#app",
+            data: {
+                name: "zhangsan",
+                age: 18,
+                iscolor:true,
+                issize:true,
+                hobbies:[
+                    'basketball',
+                    'football',
+                    'baseball',
+                    'table tennis'
+                ]
+            },
+            methods:{
+                btChange:function(){
+                    this.name=''
+                }
+            }
+        }) 
+    </script>
+
+</body>
+
+</html>
